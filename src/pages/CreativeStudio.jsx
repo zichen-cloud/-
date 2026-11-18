@@ -242,7 +242,9 @@ export default function CreativeStudio() {
       concept: p.concept,
       colorPalette: p.colorPalette || [],
       imageUrl: p.imageUrl || '',
-      elements: [...(p.fromA || []), ...(p.fromB || []), ...(p.fromC || [])],
+      // elements 必须是字符串：后端 NarrationRequest / VideoRequest 的该字段为 str，
+      // 传数组会被 Pydantic 拒绝（422），导致跨界融合旁白/视频生成失败
+      elements: [...(p.fromA || []), ...(p.fromB || []), ...(p.fromC || [])].join('；'),
       designBrief: p.how || '',
     }
     setForm((prev) => ({
