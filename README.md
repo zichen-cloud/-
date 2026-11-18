@@ -221,6 +221,14 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 | 承担工作 | 需求与产品设计、AI 能力选型与评测、前后端开发与联调、视觉设计与文档撰写 |
 | 完成时间 | 2026 年 11 月 |
 
+## 开发约定
+
+- 目录分层：页面（`src/pages`）只负责编排，领域组件（`src/components/*`）与接口封装（`src/services`）各自独立
+- 后端按业务域拆分 `api/` 与 `services/`，服务层不直接依赖 FastAPI，便于单测与替换模型供应商
+- 注释说明“为什么”而不是“做了什么”；参数、阈值与超时均有中文注释与出处
+- 提交信息采用 `feat / fix / docs / refactor / chore` 前缀，一次提交只做一件事
+- 新增非遗项目只需修改 `backend/knowledge/items.json`，无需改动检索逻辑
+
 ## 安全说明
 
 - 所有 API 密钥仅从后端环境变量读取（`backend/.env`），代码中无任何硬编码密钥
