@@ -13,6 +13,9 @@ backend/.env.*
 # 构建产物（npm run build 后生成）
 dist
 
+# Vite 运行时临时文件（dev server 启动时生成）
+vite.config.js.timestamp-*.mjs
+
 # 日志
 *.log
 npm-debug.log*

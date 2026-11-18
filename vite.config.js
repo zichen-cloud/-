@@ -8,6 +8,7 @@ export default defineConfig({
   // 启用 React 插件（支持 JSX、Fast Refresh 热更新）
   plugins: [react()],
   server: {
+    host: '127.0.0.1', // 显式绑定 IPv4，避免只监听 ::1 导致 127.0.0.1/localhost 访问失败
     port: 5173, // 本地开发服务器端口
     open: true, // 启动时自动打开浏览器
     // 代理：把 /api 开头的请求转发给 FastAPI 后端
