@@ -151,16 +151,17 @@ function makePatternCanvas(colors, variant) {
 /* ---- 各产品印花面规格（与 ProceduralModels.jsx 中印花贴片尺寸一致） ----
  * aspect = 印花面宽/高；size = 从效果图取样的比例；
  * offsetY = 取样窗口相对源图中心的下移量（占源图高比例）：
- *   AI 效果图产品居中，但提手/摄像头等「产品结构」在画面上部，
- *   稍微下移取样可避开它们，只取印花所在的袋面/壳面区域。 */
+ *   AI 效果图产品居中，但提手/摄像头等「产品结构」在画面上部。
+ * size 取 0.75~0.85：尽量覆盖效果图中完整的产品主体与纹样设计
+ * （取样窗口过小会把效果图局部放大，导致贴图内容残缺、图案过大）。 */
 const PRINT_SPEC = {
-  'tote-bag':      { aspect: 1.95 / 1.98, size: 0.44, offsetY: 0.14 }, // 下移避开 AI 图中的提手
-  mug:             { aspect: 2.0,         size: 0.62 },               // 环绕杯身，宽幅横向取图
-  'phone-case':    { aspect: 1.08 / 2.28, size: 0.42, offsetY: 0.12 }, // 下移避开顶部摄像头开孔
-  bookmark:        { aspect: 0.68 / 2.7,  size: 0.40 },
-  'fridge-magnet': { aspect: 1,           size: 0.50 },
-  cushion:         { aspect: 1,           size: 0.50 },
-  default:         { aspect: 1,           size: 0.5  },
+  'tote-bag':      { aspect: 1.95 / 1.98, size: 0.80, offsetY: 0.04 }, // 略下移避开 AI 图中的提手
+  mug:             { aspect: 2.0,         size: 0.85 },               // 环绕杯身，宽幅横向取图
+  'phone-case':    { aspect: 1.08 / 2.28, size: 0.78, offsetY: 0.03 }, // 略下移避开顶部摄像头开孔
+  bookmark:        { aspect: 0.68 / 2.7,  size: 0.75 },
+  'fridge-magnet': { aspect: 1,           size: 0.80 },
+  cushion:         { aspect: 1,           size: 0.80 },
+  default:         { aspect: 1,           size: 0.80 },
 }
 
 /**
