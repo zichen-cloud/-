@@ -1,0 +1,51 @@
+# 依赖目录（npm install 后生成，不提交）
+node_modules
+
+# 敏感信息：API 密钥 / 环境变量（只保留不含真实值的示例文件）
+.env
+.env.*
+!.env.example
+backend/.env.*
+!backend/.env.example
+*.pem
+*.key
+
+# 构建产物（npm run build 后生成）
+dist
+
+# 日志
+*.log
+npm-debug.log*
+
+# 系统/编辑器文件
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Python 后端
+backend/.venv
+backend/__pycache__
+backend/.env
+# 运行时持久化目录：Chroma 向量库 + data/tasks 视频任务 + data/works 作品 JSON
+backend/data
+# fastembed 中文 Embedding 模型缓存（约 90MB，首次运行自动下载）
+backend/.models_cache
+backend/models/__pycache__
+backend/services/__pycache__
+backend/api/__pycache__
+
+# 创作工坊：用户上传的参考图与生成的效果图（运行时产物，不提交）
+backend/storage/
+
+# 本地工具目录与 IDE 缓存（不属于项目源码）
+Trae CN/
+.trae/
+.screenshots/
+
+# 误生成的嵌套目录
+feiyi/
+
+# 提交材料等二进制产物（按需单独提交，不进入代码仓库）
+*.docx
+非遗灵境-*.pdf

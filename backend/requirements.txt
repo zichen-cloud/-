@@ -1,0 +1,14 @@
+# FastAPI 后端依赖（pip install -r requirements.txt）
+fastapi>=0.110          # Web 框架
+uvicorn[standard]>=0.29 # FastAPI 的运行服务器
+python-multipart>=0.0.9 # 处理文件上传（multipart/form-data）
+httpx>=0.27             # 发送 HTTP 请求（调用多模态 AI 模型 / 百炼万相）
+python-dotenv>=1.0      # 读取 .env 环境变量文件
+Pillow>=10.0            # 创作工坊：参考图校验重编码 + demo 模式演示图绘制
+imageio-ffmpeg>=0.5     # 阶段三视频合成：内置完整 ffmpeg 可执行文件（无需系统安装 FFmpeg）
+
+# 第二阶段：RAG 知识库
+chromadb>=0.5.0         # 向量数据库（持久化存储）
+fastembed>=0.8.0        # 中文 Embedding（本地 ONNX 模型 bge-small-zh-v1.5，首次运行经 hf-mirror.com 镜像下载，无需 API Key）
+# fastembed 加载失败时 embedding_service 自动降级到本地伪向量，不影响运行。
+# 旧方案 sentence-transformers（需额外安装 torch，体积大）已弃用，不再默认安装。

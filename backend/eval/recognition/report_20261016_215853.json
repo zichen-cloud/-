@@ -1,0 +1,145 @@
+{
+  "run_at": "2026-10-16T21:57:11",
+  "cases": [
+    {
+      "id": "real-001",
+      "category": "清晰的传统工艺风格作品",
+      "trueLabel": "刺绣团扇特写（AI 写实生成，模拟真实刺绣照片）",
+      "expectedBehavior": "允许 ok 给出刺绣类候选，或 uncertain 说明无法区分手工/机绣与地域流派；不得把牡丹图案直接认定为某具体非遗",
+      "recognitionStatus": "uncertain",
+      "predictedCategory": "传统美术 · 苏绣",
+      "imageContent": "一把圆形木质团扇，扇面以浅米色底布为基底，绣有两朵粉色牡丹花及绿叶枝蔓图案。",
+      "candidates": [
+        {
+          "name": "苏绣",
+          "category": "传统美术",
+          "basis": "针法细腻、色彩过渡自然、注重写实与光影表现，符合苏绣‘平、齐、细、密、和、光、顺、匀’特点；牡丹为苏绣经典题材。",
+          "region": "江苏苏州"
+        },
+        {
+          "name": "粤绣（广绣）",
+          "category": "传统美术",
+          "basis": "若丝线光泽较强、金线偶现（本图未见明显金线），或构图饱满繁复，则可能属粤绣；但当前图像中无典型金线/银线装饰及浓烈对比色，证据不足。",
+          "region": ""
+        }
+      ],
+      "ragSourceIds": [
+        "suzhou-embroidery",
+        "lion-dance"
+      ],
+      "unconfirmedInfo": [
+        "无法确认是否为手工刺绣（机器绣亦可模拟类似针迹）",
+        "无落款、印章或织造标签，无法判断作者、年代与产地",
+        "扇面底布材质（真丝/棉麻/化纤）不可辨识",
+        "是否属于非遗传承人作品或现代文创衍生品无法判定"
+      ],
+      "verdict": "REVIEW"
+    },
+    {
+      "id": "modern-001",
+      "category": "现代文创产品",
+      "trueLabel": "二十四节气·惊蛰主题文创帆布袋（wan2.7-image AI 效果图）",
+      "expectedBehavior": "应识别为现代文创/印刷品，not_heritage 或 uncertain；不得认定为传统非遗作品",
+      "recognitionStatus": "not_heritage",
+      "predictedCategory": "无法判断（图片与非遗无关）",
+      "imageContent": "一个米白色帆布手提袋，正面印有以‘惊蛰’为主题的插画图案，包含闪电、新芽、云朵及汉字‘惊’与横幅文字‘二十节气蛰春气’。",
+      "candidates": [],
+      "ragSourceIds": [],
+      "unconfirmedInfo": [
+        "图案是否基于某地节气民俗创作（如江南农事习俗）无法从图像确认",
+        "该设计是否由非遗传承人参与或授权使用非遗元素未知",
+        "右下角小标签‘惊樂’是否为品牌名或机构标识，其文化属性不明"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "id": "printed-001",
+      "category": "普通商品上的传统风格图案",
+      "trueLabel": "印有平面牡丹图案的白色 T 恤（合成示意图，无针脚）",
+      "expectedBehavior": "应识别为机器印花/现代商品，not_heritage 或 uncertain；不得仅凭牡丹图案认定为苏绣等非遗",
+      "recognitionStatus": "not_heritage",
+      "predictedCategory": "无法判断（图片与非遗无关）",
+      "imageContent": "一张带有简约花卉图案（粉色花瓣、黄色花心、绿色叶片）的白色卡片式设计图，底部标注英文‘PEONY STYLE’，整体为平面矢量风格插画。",
+      "candidates": [],
+      "ragSourceIds": [],
+      "unconfirmedInfo": [
+        "该图案是否用于实际非遗载体（如刺绣底稿、剪纸模板、年画稿）无法确认",
+        "是否为现代设计软件生成的数字插画无法仅凭图像判断"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "id": "aigen-001",
+      "category": "AI 生成的传统风格图片",
+      "trueLabel": "PIL 合成的数字双喜剪纸风格图（无手工痕迹）",
+      "expectedBehavior": "可识别剪纸风格元素，但不得直接认定为真实剪纸非遗作品；uncertain 或 not_heritage 均可接受",
+      "recognitionStatus": "uncertain",
+      "predictedCategory": "无法判断（视觉证据不足）",
+      "imageContent": "一张以红色为底色、中央为白色双喜字（囍）的平面图形设计，外围环绕锯齿状白边与六个小圆圈装饰。",
+      "candidates": [],
+      "ragSourceIds": [],
+      "unconfirmedInfo": [
+        "该图案是否用于传统婚俗载体（如剪纸、年画、刺绣、器物装饰）无法确认",
+        "是否为手工艺制品（如剪纸、木版印制）或现代数字设计无法判断",
+        "‘囍’字的具体地域变体风格（如北方剪纸式、南方年画式）缺乏细节证据"
+      ],
+      "verdict": "REVIEW"
+    },
+    {
+      "id": "blurry-001",
+      "category": "模糊、低分辨率图片",
+      "trueLabel": "120px 放大到 720px 的刺绣团扇（严重模糊）",
+      "expectedBehavior": "细节不可辨认时应 uncertain 并说明模糊原因；不得编造看不清的工艺细节",
+      "recognitionStatus": "uncertain",
+      "predictedCategory": "无法判断（视觉证据不足）",
+      "imageContent": "一把圆形团扇，扇面以浅色底布为背景，绣有粉色牡丹花与绿色叶片图案，外缘包有浅棕色木质边框，手持木柄部分可见。",
+      "candidates": [],
+      "ragSourceIds": [],
+      "unconfirmedInfo": [
+        "无法确认是否为手工刺绣，亦无法排除机器印花或数码刺绣可能性",
+        "无地域性标识（如特定纹样、色彩偏好、装裱方式）可指向具体地方流派",
+        "扇形制式常见于多种传统工艺，不能单独作为非遗判定依据"
+      ],
+      "verdict": "REVIEW"
+    },
+    {
+      "id": "unrelated-001",
+      "category": "与非遗无关的普通图片",
+      "trueLabel": "卡通风格山水插画",
+      "expectedBehavior": "必须 not_heritage，candidates 为空",
+      "recognitionStatus": "not_heritage",
+      "predictedCategory": "无法判断（图片与非遗无关）",
+      "imageContent": "一张由浅蓝色背景、黄色圆形太阳、灰色三角形山体和绿色矩形地面构成的极简风格平面图形。",
+      "candidates": [],
+      "ragSourceIds": [],
+      "unconfirmedInfo": [
+        "该图像是否为某非遗项目相关符号的简化示意（如节气图示、民间剪纸抽象稿）无法确认",
+        "图像是否由AI生成或儿童绘画亦无法仅凭此图判断"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "id": "abstract-001",
+      "category": "抽象几何图形（红色系诱导项）",
+      "trueLabel": "红底白色同心圆+放射圆点几何图",
+      "expectedBehavior": "红色不等于剪纸；必须 not_heritage 或 uncertain，不得因红白色调误判为剪纸/年画",
+      "recognitionStatus": "not_heritage",
+      "predictedCategory": "无法判断（图片与非遗无关）",
+      "imageContent": "红色背景上有一个白色几何图形，由中心同心圆环与外围八个等距排列的实心圆点构成，整体呈放射对称布局。",
+      "candidates": [],
+      "ragSourceIds": [],
+      "unconfirmedInfo": [
+        "该图形是否为某组织/活动的现代标志设计",
+        "是否源自某种简化符号系统（如节气图示、宗教符号等）",
+        "是否为AI生成图像"
+      ],
+      "verdict": "PASS"
+    }
+  ],
+  "summary": {
+    "pass": 4,
+    "fail": 0,
+    "review": 3,
+    "total": 7
+  }
+}

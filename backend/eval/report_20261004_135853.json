@@ -1,0 +1,632 @@
+{
+  "timestamp": "2026-10-04T13:58:53.510302",
+  "config": {
+    "top_k": 3,
+    "hybrid_search": true,
+    "retrieve_candidates": 10,
+    "rrf_k": 60,
+    "bm25_min_score": 2.0
+  },
+  "vector_only": {
+    "summary": {
+      "label": "纯向量",
+      "total": 21,
+      "hit_rate": 0.9523809523809523,
+      "recall_at_k": 0.9523809523809523,
+      "reject_accuracy": 1.0,
+      "keyword_only_rate": 0.0,
+      "by_category": {
+        "基础知识": {
+          "rate": 1.0
+        },
+        "专有名词": {
+          "rate": 0.75
+        },
+        "地区": {
+          "rate": 1.0
+        },
+        "技艺": {
+          "rate": 1.0
+        },
+        "多轮追问": {
+          "rate": 1.0
+        },
+        "无答案": {
+          "rate": 1.0
+        },
+        "相似混淆": {
+          "rate": 1.0
+        }
+      }
+    },
+    "details": [
+      {
+        "id": "base-001",
+        "question": "昆曲是什么",
+        "category": "基础知识",
+        "hits": 3,
+        "got_docs": [
+          "kunqu",
+          "kunqu",
+          "kunqu"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "base-002",
+        "question": "什么是非物质文化遗产",
+        "category": "基础知识",
+        "hits": 0,
+        "got_docs": [],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "term-001",
+        "question": "什么是水磨调",
+        "category": "专有名词",
+        "hits": 1,
+        "got_docs": [
+          "kunqu"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "term-002",
+        "question": "采青是什么意思",
+        "category": "专有名词",
+        "hits": 1,
+        "got_docs": [
+          "lion-dance"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "term-003",
+        "question": "榫卯结构不用钉子吗",
+        "category": "专有名词",
+        "hits": 3,
+        "got_docs": [
+          "sunmao",
+          "sunmao",
+          "sunmao"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "term-004",
+        "question": "妆花工艺是什么",
+        "category": "专有名词",
+        "hits": 3,
+        "got_docs": [
+          "jingdezhen-porcelain",
+          "cloisonne",
+          "cloisonne"
+        ],
+        "matched": false,
+        "recall_k": false,
+        "keyword_only": false
+      },
+      {
+        "id": "region-001",
+        "question": "江苏有哪些非遗项目",
+        "category": "地区",
+        "hits": 2,
+        "got_docs": [
+          "suzhou-embroidery",
+          "suzhou-pingtan"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "region-002",
+        "question": "广东有什么传统舞蹈",
+        "category": "地区",
+        "hits": 3,
+        "got_docs": [
+          "lion-dance",
+          "lion-dance",
+          "lion-dance"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "tech-001",
+        "question": "苏绣有哪些针法",
+        "category": "技艺",
+        "hits": 3,
+        "got_docs": [
+          "suzhou-embroidery",
+          "suzhou-embroidery",
+          "suzhou-embroidery"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "tech-002",
+        "question": "剪纸有哪些表现手法",
+        "category": "技艺",
+        "hits": 3,
+        "got_docs": [
+          "paper-cutting",
+          "paper-cutting",
+          "paper-cutting"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "tech-003",
+        "question": "景泰蓝的制作工序有哪些",
+        "category": "技艺",
+        "hits": 3,
+        "got_docs": [
+          "cloisonne",
+          "cloisonne",
+          "cloisonne"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "follow-001",
+        "question": "昆曲的唱腔有什么特点",
+        "category": "多轮追问",
+        "hits": 3,
+        "got_docs": [
+          "kunqu",
+          "kunqu",
+          "kunqu"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "follow-002",
+        "question": "它的伴奏乐器呢",
+        "category": "多轮追问",
+        "hits": 3,
+        "got_docs": [
+          "kunqu",
+          "suzhou-pingtan",
+          "guqin"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "none-001",
+        "question": "明天是星期几",
+        "category": "无答案",
+        "hits": 0,
+        "got_docs": [],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "none-002",
+        "question": "怎么做红烧肉",
+        "category": "无答案",
+        "hits": 0,
+        "got_docs": [],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "none-003",
+        "question": "故宫门票多少钱",
+        "category": "无答案",
+        "hits": 0,
+        "got_docs": [],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "confuse-001",
+        "question": "昆曲和京剧有什么区别",
+        "category": "相似混淆",
+        "hits": 3,
+        "got_docs": [
+          "kunqu",
+          "kunqu",
+          "peking-opera"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "confuse-002",
+        "question": "苏绣和湘绣哪个更有名",
+        "category": "相似混淆",
+        "hits": 3,
+        "got_docs": [
+          "suzhou-embroidery",
+          "suzhou-embroidery",
+          "suzhou-embroidery"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "confuse-003",
+        "question": "皮影戏和木偶戏一样吗",
+        "category": "相似混淆",
+        "hits": 3,
+        "got_docs": [
+          "shadow-play",
+          "shadow-play",
+          "shadow-play"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "base-003",
+        "question": "端午节吃什么",
+        "category": "基础知识",
+        "hits": 3,
+        "got_docs": [
+          "dragon-boat-festival",
+          "dragon-boat-festival",
+          "dragon-boat-festival"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "base-004",
+        "question": "二十四节气有什么用",
+        "category": "基础知识",
+        "hits": 3,
+        "got_docs": [
+          "solar-terms",
+          "solar-terms",
+          "solar-terms"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      }
+    ]
+  },
+  "hybrid": {
+    "summary": {
+      "label": "混合检索",
+      "total": 21,
+      "hit_rate": 0.9523809523809523,
+      "recall_at_k": 0.9523809523809523,
+      "reject_accuracy": 1.0,
+      "keyword_only_rate": 0.05555555555555555,
+      "by_category": {
+        "基础知识": {
+          "rate": 1.0
+        },
+        "专有名词": {
+          "rate": 0.75
+        },
+        "地区": {
+          "rate": 1.0
+        },
+        "技艺": {
+          "rate": 1.0
+        },
+        "多轮追问": {
+          "rate": 1.0
+        },
+        "无答案": {
+          "rate": 1.0
+        },
+        "相似混淆": {
+          "rate": 1.0
+        }
+      }
+    },
+    "details": [
+      {
+        "id": "base-001",
+        "question": "昆曲是什么",
+        "category": "基础知识",
+        "hits": 3,
+        "got_docs": [
+          "kunqu",
+          "kunqu",
+          "kunqu"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "base-002",
+        "question": "什么是非物质文化遗产",
+        "category": "基础知识",
+        "hits": 3,
+        "got_docs": [
+          "guqin",
+          "suzhou-pingtan",
+          "dong-choir"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": true
+      },
+      {
+        "id": "term-001",
+        "question": "什么是水磨调",
+        "category": "专有名词",
+        "hits": 2,
+        "got_docs": [
+          "kunqu",
+          "kunqu"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "term-002",
+        "question": "采青是什么意思",
+        "category": "专有名词",
+        "hits": 1,
+        "got_docs": [
+          "lion-dance"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "term-003",
+        "question": "榫卯结构不用钉子吗",
+        "category": "专有名词",
+        "hits": 3,
+        "got_docs": [
+          "sunmao",
+          "sunmao",
+          "sunmao"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "term-004",
+        "question": "妆花工艺是什么",
+        "category": "专有名词",
+        "hits": 3,
+        "got_docs": [
+          "cloisonne",
+          "jingdezhen-porcelain",
+          "cloisonne"
+        ],
+        "matched": false,
+        "recall_k": false,
+        "keyword_only": false
+      },
+      {
+        "id": "region-001",
+        "question": "江苏有哪些非遗项目",
+        "category": "地区",
+        "hits": 3,
+        "got_docs": [
+          "suzhou-embroidery",
+          "suzhou-embroidery",
+          "suzhou-pingtan"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "region-002",
+        "question": "广东有什么传统舞蹈",
+        "category": "地区",
+        "hits": 3,
+        "got_docs": [
+          "lion-dance",
+          "lion-dance",
+          "lion-dance"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "tech-001",
+        "question": "苏绣有哪些针法",
+        "category": "技艺",
+        "hits": 3,
+        "got_docs": [
+          "suzhou-embroidery",
+          "suzhou-embroidery",
+          "suzhou-embroidery"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "tech-002",
+        "question": "剪纸有哪些表现手法",
+        "category": "技艺",
+        "hits": 3,
+        "got_docs": [
+          "paper-cutting",
+          "paper-cutting",
+          "paper-cutting"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "tech-003",
+        "question": "景泰蓝的制作工序有哪些",
+        "category": "技艺",
+        "hits": 3,
+        "got_docs": [
+          "cloisonne",
+          "cloisonne",
+          "cloisonne"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "follow-001",
+        "question": "昆曲的唱腔有什么特点",
+        "category": "多轮追问",
+        "hits": 3,
+        "got_docs": [
+          "kunqu",
+          "kunqu",
+          "kunqu"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "follow-002",
+        "question": "它的伴奏乐器呢",
+        "category": "多轮追问",
+        "hits": 3,
+        "got_docs": [
+          "kunqu",
+          "suzhou-pingtan",
+          "guqin"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "none-001",
+        "question": "明天是星期几",
+        "category": "无答案",
+        "hits": 0,
+        "got_docs": [],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "none-002",
+        "question": "怎么做红烧肉",
+        "category": "无答案",
+        "hits": 0,
+        "got_docs": [],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "none-003",
+        "question": "故宫门票多少钱",
+        "category": "无答案",
+        "hits": 0,
+        "got_docs": [],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "confuse-001",
+        "question": "昆曲和京剧有什么区别",
+        "category": "相似混淆",
+        "hits": 3,
+        "got_docs": [
+          "peking-opera",
+          "kunqu",
+          "kunqu"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "confuse-002",
+        "question": "苏绣和湘绣哪个更有名",
+        "category": "相似混淆",
+        "hits": 3,
+        "got_docs": [
+          "suzhou-embroidery",
+          "suzhou-embroidery",
+          "suzhou-embroidery"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "confuse-003",
+        "question": "皮影戏和木偶戏一样吗",
+        "category": "相似混淆",
+        "hits": 3,
+        "got_docs": [
+          "shadow-play",
+          "shadow-play",
+          "shadow-play"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "base-003",
+        "question": "端午节吃什么",
+        "category": "基础知识",
+        "hits": 3,
+        "got_docs": [
+          "dragon-boat-festival",
+          "dragon-boat-festival",
+          "dragon-boat-festival"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      },
+      {
+        "id": "base-004",
+        "question": "二十四节气有什么用",
+        "category": "基础知识",
+        "hits": 3,
+        "got_docs": [
+          "solar-terms",
+          "solar-terms",
+          "solar-terms"
+        ],
+        "matched": true,
+        "recall_k": true,
+        "keyword_only": false
+      }
+    ]
+  }
+}

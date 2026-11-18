@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "createdAt": "2026-10-04",
+    "description": "非遗问答评测测试集：覆盖基础知识/专有名词/地区/技艺/多轮追问/无答案/相似项目混淆七类",
+    "usage": "run_eval.py 加载本文件，调用 rag_service.retrieve() 评测检索质量"
+  },
+  "cases": [
+    {
+      "id": "base-001",
+      "category": "基础知识",
+      "question": "昆曲是什么",
+      "expected_docs": ["kunqu"],
+      "expected_behavior": "hit",
+      "note": "基础概念查询"
+    },
+    {
+      "id": "base-002",
+      "category": "基础知识",
+      "question": "什么是非物质文化遗产",
+      "expected_docs": [],
+      "expected_behavior": "reject_or_weak",
+      "note": "库中无定义条目，应拒答或标记弱证据"
+    },
+    {
+      "id": "term-001",
+      "category": "专有名词",
+      "question": "什么是水磨调",
+      "expected_docs": ["kunqu"],
+      "expected_behavior": "hit",
+      "note": "昆曲术语"
+    },
+    {
+      "id": "term-002",
+      "category": "专有名词",
+      "question": "采青是什么意思",
+      "expected_docs": ["lion-dance"],
+      "expected_behavior": "hit",
+      "note": "醒狮术语"
+    },
+    {
+      "id": "term-003",
+      "category": "专有名词",
+      "question": "榫卯结构不用钉子吗",
+      "expected_docs": ["sunmao"],
+      "expected_behavior": "hit",
+      "note": "木作术语"
+    },
+    {
+      "id": "term-004",
+      "category": "专有名词",
+      "question": "妆花工艺是什么",
+      "expected_docs": ["yunjin"],
+      "expected_behavior": "hit",
+      "note": "云锦条目已补充，妆花为云锦核心工艺术语"
+    },
+    {
+      "id": "region-001",
+      "category": "地区",
+      "question": "江苏有哪些非遗项目",
+      "expected_docs": ["kunqu", "suzhou-embroidery", "suzhou-pingtan"],
+      "expected_behavior": "hit_any",
+      "note": "地区列举，命中任一即算"
+    },
+    {
+      "id": "region-002",
+      "category": "地区",
+      "question": "广东有什么传统舞蹈",
+      "expected_docs": ["lion-dance"],
+      "expected_behavior": "hit",
+      "note": "地区+类别组合查询"
+    },
+    {
+      "id": "tech-001",
+      "category": "技艺",
+      "question": "苏绣有哪些针法",
+      "expected_docs": ["suzhou-embroidery"],
+      "expected_behavior": "hit",
+      "note": "技艺细节查询"
+    },
+    {
+      "id": "tech-002",
+      "category": "技艺",
+      "question": "剪纸有哪些表现手法",
+      "expected_docs": ["paper-cutting"],
+      "expected_behavior": "hit",
+      "note": "技艺分类查询"
+    },
+    {
+      "id": "tech-003",
+      "category": "技艺",
+      "question": "景泰蓝的制作工序有哪些",
+      "expected_docs": ["cloisonne"],
+      "expected_behavior": "hit",
+      "note": "工艺流程查询"
+    },
+    {
+      "id": "follow-001",
+      "category": "多轮追问",
+      "question": "昆曲的唱腔有什么特点",
+      "expected_docs": ["kunqu"],
+      "expected_behavior": "hit",
+      "note": "第一轮：建立上下文",
+      "session": "follow-1"
+    },
+    {
+      "id": "follow-002",
+      "category": "多轮追问",
+      "question": "它的伴奏乐器呢",
+      "expected_docs": ["kunqu"],
+      "expected_behavior": "hit",
+      "note": "第二轮：'它'应指昆曲，需会话记忆",
+      "session": "follow-1",
+      "depends_on": "follow-001"
+    },
+    {
+      "id": "none-001",
+      "category": "无答案",
+      "question": "明天是星期几",
+      "expected_docs": [],
+      "expected_behavior": "reject",
+      "note": "完全无关，应拒答"
+    },
+    {
+      "id": "none-002",
+      "category": "无答案",
+      "question": "怎么做红烧肉",
+      "expected_docs": [],
+      "expected_behavior": "reject",
+      "note": "完全无关，应拒答"
+    },
+    {
+      "id": "none-003",
+      "category": "无答案",
+      "question": "故宫门票多少钱",
+      "expected_docs": [],
+      "expected_behavior": "reject",
+      "note": "实时信息，库中无，应拒答"
+    },
+    {
+      "id": "confuse-001",
+      "category": "相似混淆",
+      "question": "昆曲和京剧有什么区别",
+      "expected_docs": ["kunqu"],
+      "expected_behavior": "hit_any",
+      "note": "库中有昆曲无京剧，命中昆曲即可"
+    },
+    {
+      "id": "confuse-002",
+      "category": "相似混淆",
+      "question": "苏绣和湘绣哪个更有名",
+      "expected_docs": ["suzhou-embroidery"],
+      "expected_behavior": "hit_any",
+      "note": "库中有苏绣无湘绣，命中苏绣即可"
+    },
+    {
+      "id": "confuse-003",
+      "category": "相似混淆",
+      "question": "皮影戏和木偶戏一样吗",
+      "expected_docs": ["shadow-play"],
+      "expected_behavior": "hit_any",
+      "note": "库中有皮影无木偶，命中皮影即可"
+    },
+    {
+      "id": "base-003",
+      "category": "基础知识",
+      "question": "端午节吃什么",
+      "expected_docs": ["dragon-boat-festival"],
+      "expected_behavior": "hit",
+      "note": "民俗知识"
+    },
+    {
+      "id": "base-004",
+      "category": "基础知识",
+      "question": "二十四节气有什么用",
+      "expected_docs": ["solar-terms"],
+      "expected_behavior": "hit",
+      "note": "民俗知识"
+    }
+  ]
+}

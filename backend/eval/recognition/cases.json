@@ -1,0 +1,56 @@
+{
+  "version": "2026-10-16",
+  "description": "图片识别测试集：7 类用例，人工核验标签，评估模型是否强行归类/误识别",
+  "note": "本测试集图片均通过脚本生成或来自本项目 AI 生成效果图，非真实文物照片；用于验证识别系统的判定行为（是否克制、是否强行归类），不构成对真实文物识别能力的测量。",
+  "cases": [
+    {
+      "id": "real-001",
+      "file": "images/realistic_embroidery_fan.png",
+      "category": "清晰的传统工艺风格作品",
+      "trueLabel": "刺绣团扇特写（AI 写实生成，模拟真实刺绣照片）",
+      "expectedBehavior": "允许 ok 给出刺绣类候选，或 uncertain 说明无法区分手工/机绣与地域流派；不得把牡丹图案直接认定为某具体非遗"
+    },
+    {
+      "id": "modern-001",
+      "file": "images/cultural_creative_tote.png",
+      "category": "现代文创产品",
+      "trueLabel": "二十四节气·惊蛰主题文创帆布袋（wan2.7-image AI 效果图）",
+      "expectedBehavior": "应识别为现代文创/印刷品，not_heritage 或 uncertain；不得认定为传统非遗作品"
+    },
+    {
+      "id": "printed-001",
+      "file": "images/printed_tshirt.png",
+      "category": "普通商品上的传统风格图案",
+      "trueLabel": "印有平面牡丹图案的白色 T 恤（合成示意图，无针脚）",
+      "expectedBehavior": "应识别为机器印花/现代商品，not_heritage 或 uncertain；不得仅凭牡丹图案认定为苏绣等非遗"
+    },
+    {
+      "id": "aigen-001",
+      "file": "images/digital_shuangxi.png",
+      "category": "AI 生成的传统风格图片",
+      "trueLabel": "PIL 合成的数字双喜剪纸风格图（无手工痕迹）",
+      "expectedBehavior": "可识别剪纸风格元素，但不得直接认定为真实剪纸非遗作品；uncertain 或 not_heritage 均可接受"
+    },
+    {
+      "id": "blurry-001",
+      "file": "images/blurry_embroidery.png",
+      "category": "模糊、低分辨率图片",
+      "trueLabel": "120px 放大到 720px 的刺绣团扇（严重模糊）",
+      "expectedBehavior": "细节不可辨认时应 uncertain 并说明模糊原因；不得编造看不清的工艺细节"
+    },
+    {
+      "id": "unrelated-001",
+      "file": "images/landscape.png",
+      "category": "与非遗无关的普通图片",
+      "trueLabel": "卡通风格山水插画",
+      "expectedBehavior": "必须 not_heritage，candidates 为空"
+    },
+    {
+      "id": "abstract-001",
+      "file": "images/abstract_red_geometry.png",
+      "category": "抽象几何图形（红色系诱导项）",
+      "trueLabel": "红底白色同心圆+放射圆点几何图",
+      "expectedBehavior": "红色不等于剪纸；必须 not_heritage 或 uncertain，不得因红白色调误判为剪纸/年画"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+/* ============================================================
+   全局样式文件
+   三行 @tailwind 指令是 Tailwind 生效的关键，缺一不可：
+   - base：      统一各浏览器默认样式（重置 margin 等）
+   - components：下面我们自定义的可复用类（按钮、卡片）
+   - utilities： Tailwind 提供的上万种工具类
+   ============================================================ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- 基础层：全站默认外观 ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth; /* 点击锚点时平滑滚动 */
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+
+  /* 鼠标选中文字时的颜色（朱砂淡底） */
+  ::selection {
+    @apply bg-cinnabar/15 text-cinnabar-dark;
+  }
+}
+
+/* ---------- 组件层：团队共用的"设计零件" ----------
+   用法和普通 class 一样：<button className="btn-primary"> */
+@layer components {
+  /* 页面版心：限制最大宽度并自动居中，两侧留出安全间距 */
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  /* 主按钮：朱砂底、胶囊形 */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-cinnabar px-6 py-3
+      text-sm font-medium text-white shadow-sm transition
+      hover:bg-cinnabar-dark active:scale-[0.98];
+  }
+
+  /* 次按钮：描边样式 */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line
+      bg-white/60 px-6 py-3 text-sm font-medium text-ink transition
+      hover:border-cinnabar/40 hover:text-cinnabar active:scale-[0.98];
+  }
+
+  /* 次主按钮：浅朱砂描边，用于层级低于主按钮的重要操作（如"生成配音"） */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-cinnabar/30
+      bg-cinnabar/5 px-6 py-3 text-sm font-medium text-cinnabar transition
+      hover:bg-cinnabar/10 active:scale-[0.98];
+  }
+
+  /* 卡片：白底、暖灰描边、极柔和的阴影、适中圆角 */
+  .card {
+    @apply rounded-2xl border border-line bg-white
+      shadow-[0_8px_30px_rgba(38,36,31,0.05)];
+  }
+
+  /* 栏目标题（宋体） */
+  .section-title {
+    @apply font-serif text-2xl font-semibold text-ink sm:text-3xl;
+  }
+
+  /* 栏目前的小标签（英文/间距拉开的提示文字） */
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.25em] text-cinnabar;
+  }
+
+  /* 小标签 chip，用于非遗分类 */
+  .chip {
+    @apply inline-flex items-center rounded-full bg-cinnabar/10 px-2.5 py-1
+      text-xs font-medium text-cinnabar;
+  }
+}
+
+/* ============================================================
+ * 无障碍：系统开启「减弱动态效果」时，停用装饰性动画。
+ * 只影响纯装饰层（墨晕、长卷横移、光泽扫过等），
+ * 不影响页面切换淡入与按钮反馈这类功能性过渡。
+ * ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .animate-ink-drift,
+  .animate-ink-drift-slow,
+  .animate-sheen,
+  .animate-scroll-pan,
+  .animate-float {
+    animation: none !important;
+  }
+}
